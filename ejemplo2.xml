@@ -1,0 +1,32 @@
+<Products>
+	<Product pid="p123">
+		<Name>gizmo</Name>
+		<Price>2299</Price>
+		<Description>great</Description>
+		<Store>
+			<Name>wiz</Name>
+			<Phone>5551234</Phone>
+			<Markup>25</Markup>
+		</Store>
+		<Store>
+			<Name>EconoWiz</Name>
+			<Phone>5556543</Phone>
+			<Markup>15</Markup>
+		</Store>
+	</Product>
+	<Product pid="p231">
+		<Name>gizmoPlus</Name>
+		<Price>9999</Price>
+		<Description>more features</Description>
+		<Store>
+			<Name>wiz</Name>
+			<Phone>5551234</Phone>
+			<Markup>10</Markup>
+		</Store>
+	</Product>
+	<Product pid="p312">
+		<Name>gadget</Name>
+		<Price>5999</Price>
+		<Description>good value</Description>
+	</Product>
+</Products>

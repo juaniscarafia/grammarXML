@@ -1,0 +1,409 @@
+Created by PLY version 3.4 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> root
+Rule 1     root -> elemento
+Rule 2     root -> elemento PD
+Rule 3     root -> PD elemento
+Rule 4     root -> PD elemento PD
+Rule 5     elemento -> EI hijos EF
+Rule 6     elemento -> especial
+Rule 7     EI -> MENOR TEXT AS MAYOR
+Rule 8     EF -> MENORBARRA TEXT MAYOR
+Rule 9     especial -> MENOR TEXT AS BARRAMAYOR
+Rule 10    AS -> AS A
+Rule 11    AS -> empty
+Rule 12    A -> TEXT IGUAL valorA
+Rule 13    valorA -> AV1O AV1TEXT AV1C
+Rule 14    valorA -> AV2O AV2TEXT AV2C
+Rule 15    hijos -> hijo hijos
+Rule 16    hijos -> empty
+Rule 17    hijo -> elemento
+Rule 18    hijo -> PD
+Rule 19    empty -> <empty>
+
+Terminals, with rules where they appear
+
+AV1C                 : 13
+AV1O                 : 13
+AV1TEXT              : 13
+AV2C                 : 14
+AV2O                 : 14
+AV2TEXT              : 14
+BARRAMAYOR           : 9
+IGUAL                : 12
+MAYOR                : 7 8
+MENOR                : 7 9
+MENORBARRA           : 8
+PD                   : 2 3 4 4 18
+TEXT                 : 7 8 9 12
+error                : 
+
+Nonterminals, with rules where they appear
+
+A                    : 10
+AS                   : 7 9 10
+EF                   : 5
+EI                   : 5
+elemento             : 1 2 3 4 17
+empty                : 11 16
+especial             : 6
+hijo                 : 15
+hijos                : 5 15
+root                 : 0
+valorA               : 12
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . root
+    (1) root -> . elemento
+    (2) root -> . elemento PD
+    (3) root -> . PD elemento
+    (4) root -> . PD elemento PD
+    (5) elemento -> . EI hijos EF
+    (6) elemento -> . especial
+    (7) EI -> . MENOR TEXT AS MAYOR
+    (9) especial -> . MENOR TEXT AS BARRAMAYOR
+
+    PD              shift and go to state 4
+    MENOR           shift and go to state 3
+
+    especial                       shift and go to state 1
+    EI                             shift and go to state 2
+    root                           shift and go to state 5
+    elemento                       shift and go to state 6
+
+state 1
+
+    (6) elemento -> especial .
+
+    PD              reduce using rule 6 (elemento -> especial .)
+    MENOR           reduce using rule 6 (elemento -> especial .)
+    MENORBARRA      reduce using rule 6 (elemento -> especial .)
+    $end            reduce using rule 6 (elemento -> especial .)
+
+
+state 2
+
+    (5) elemento -> EI . hijos EF
+    (15) hijos -> . hijo hijos
+    (16) hijos -> . empty
+    (17) hijo -> . elemento
+    (18) hijo -> . PD
+    (19) empty -> .
+    (5) elemento -> . EI hijos EF
+    (6) elemento -> . especial
+    (7) EI -> . MENOR TEXT AS MAYOR
+    (9) especial -> . MENOR TEXT AS BARRAMAYOR
+
+    PD              shift and go to state 8
+    MENORBARRA      reduce using rule 19 (empty -> .)
+    MENOR           shift and go to state 3
+
+    hijo                           shift and go to state 7
+    especial                       shift and go to state 1
+    EI                             shift and go to state 2
+    hijos                          shift and go to state 9
+    empty                          shift and go to state 10
+    elemento                       shift and go to state 11
+
+state 3
+
+    (7) EI -> MENOR . TEXT AS MAYOR
+    (9) especial -> MENOR . TEXT AS BARRAMAYOR
+
+    TEXT            shift and go to state 12
+
+
+state 4
+
+    (3) root -> PD . elemento
+    (4) root -> PD . elemento PD
+    (5) elemento -> . EI hijos EF
+    (6) elemento -> . especial
+    (7) EI -> . MENOR TEXT AS MAYOR
+    (9) especial -> . MENOR TEXT AS BARRAMAYOR
+
+    MENOR           shift and go to state 3
+
+    especial                       shift and go to state 1
+    EI                             shift and go to state 2
+    elemento                       shift and go to state 13
+
+state 5
+
+    (0) S' -> root .
+
+
+
+state 6
+
+    (1) root -> elemento .
+    (2) root -> elemento . PD
+
+    $end            reduce using rule 1 (root -> elemento .)
+    PD              shift and go to state 14
+
+
+state 7
+
+    (15) hijos -> hijo . hijos
+    (15) hijos -> . hijo hijos
+    (16) hijos -> . empty
+    (17) hijo -> . elemento
+    (18) hijo -> . PD
+    (19) empty -> .
+    (5) elemento -> . EI hijos EF
+    (6) elemento -> . especial
+    (7) EI -> . MENOR TEXT AS MAYOR
+    (9) especial -> . MENOR TEXT AS BARRAMAYOR
+
+    PD              shift and go to state 8
+    MENORBARRA      reduce using rule 19 (empty -> .)
+    MENOR           shift and go to state 3
+
+    hijo                           shift and go to state 7
+    especial                       shift and go to state 1
+    EI                             shift and go to state 2
+    hijos                          shift and go to state 15
+    empty                          shift and go to state 10
+    elemento                       shift and go to state 11
+
+state 8
+
+    (18) hijo -> PD .
+
+    PD              reduce using rule 18 (hijo -> PD .)
+    MENOR           reduce using rule 18 (hijo -> PD .)
+    MENORBARRA      reduce using rule 18 (hijo -> PD .)
+
+
+state 9
+
+    (5) elemento -> EI hijos . EF
+    (8) EF -> . MENORBARRA TEXT MAYOR
+
+    MENORBARRA      shift and go to state 16
+
+    EF                             shift and go to state 17
+
+state 10
+
+    (16) hijos -> empty .
+
+    MENORBARRA      reduce using rule 16 (hijos -> empty .)
+
+
+state 11
+
+    (17) hijo -> elemento .
+
+    PD              reduce using rule 17 (hijo -> elemento .)
+    MENOR           reduce using rule 17 (hijo -> elemento .)
+    MENORBARRA      reduce using rule 17 (hijo -> elemento .)
+
+
+state 12
+
+    (7) EI -> MENOR TEXT . AS MAYOR
+    (9) especial -> MENOR TEXT . AS BARRAMAYOR
+    (10) AS -> . AS A
+    (11) AS -> . empty
+    (19) empty -> .
+
+    MAYOR           reduce using rule 19 (empty -> .)
+    BARRAMAYOR      reduce using rule 19 (empty -> .)
+    TEXT            reduce using rule 19 (empty -> .)
+
+    AS                             shift and go to state 18
+    empty                          shift and go to state 19
+
+state 13
+
+    (3) root -> PD elemento .
+    (4) root -> PD elemento . PD
+
+    $end            reduce using rule 3 (root -> PD elemento .)
+    PD              shift and go to state 20
+
+
+state 14
+
+    (2) root -> elemento PD .
+
+    $end            reduce using rule 2 (root -> elemento PD .)
+
+
+state 15
+
+    (15) hijos -> hijo hijos .
+
+    MENORBARRA      reduce using rule 15 (hijos -> hijo hijos .)
+
+
+state 16
+
+    (8) EF -> MENORBARRA . TEXT MAYOR
+
+    TEXT            shift and go to state 21
+
+
+state 17
+
+    (5) elemento -> EI hijos EF .
+
+    PD              reduce using rule 5 (elemento -> EI hijos EF .)
+    MENOR           reduce using rule 5 (elemento -> EI hijos EF .)
+    MENORBARRA      reduce using rule 5 (elemento -> EI hijos EF .)
+    $end            reduce using rule 5 (elemento -> EI hijos EF .)
+
+
+state 18
+
+    (7) EI -> MENOR TEXT AS . MAYOR
+    (9) especial -> MENOR TEXT AS . BARRAMAYOR
+    (10) AS -> AS . A
+    (12) A -> . TEXT IGUAL valorA
+
+    MAYOR           shift and go to state 24
+    BARRAMAYOR      shift and go to state 25
+    TEXT            shift and go to state 23
+
+    A                              shift and go to state 22
+
+state 19
+
+    (11) AS -> empty .
+
+    MAYOR           reduce using rule 11 (AS -> empty .)
+    BARRAMAYOR      reduce using rule 11 (AS -> empty .)
+    TEXT            reduce using rule 11 (AS -> empty .)
+
+
+state 20
+
+    (4) root -> PD elemento PD .
+
+    $end            reduce using rule 4 (root -> PD elemento PD .)
+
+
+state 21
+
+    (8) EF -> MENORBARRA TEXT . MAYOR
+
+    MAYOR           shift and go to state 26
+
+
+state 22
+
+    (10) AS -> AS A .
+
+    MAYOR           reduce using rule 10 (AS -> AS A .)
+    BARRAMAYOR      reduce using rule 10 (AS -> AS A .)
+    TEXT            reduce using rule 10 (AS -> AS A .)
+
+
+state 23
+
+    (12) A -> TEXT . IGUAL valorA
+
+    IGUAL           shift and go to state 27
+
+
+state 24
+
+    (7) EI -> MENOR TEXT AS MAYOR .
+
+    PD              reduce using rule 7 (EI -> MENOR TEXT AS MAYOR .)
+    MENOR           reduce using rule 7 (EI -> MENOR TEXT AS MAYOR .)
+    MENORBARRA      reduce using rule 7 (EI -> MENOR TEXT AS MAYOR .)
+
+
+state 25
+
+    (9) especial -> MENOR TEXT AS BARRAMAYOR .
+
+    PD              reduce using rule 9 (especial -> MENOR TEXT AS BARRAMAYOR .)
+    $end            reduce using rule 9 (especial -> MENOR TEXT AS BARRAMAYOR .)
+    MENOR           reduce using rule 9 (especial -> MENOR TEXT AS BARRAMAYOR .)
+    MENORBARRA      reduce using rule 9 (especial -> MENOR TEXT AS BARRAMAYOR .)
+
+
+state 26
+
+    (8) EF -> MENORBARRA TEXT MAYOR .
+
+    PD              reduce using rule 8 (EF -> MENORBARRA TEXT MAYOR .)
+    $end            reduce using rule 8 (EF -> MENORBARRA TEXT MAYOR .)
+    MENOR           reduce using rule 8 (EF -> MENORBARRA TEXT MAYOR .)
+    MENORBARRA      reduce using rule 8 (EF -> MENORBARRA TEXT MAYOR .)
+
+
+state 27
+
+    (12) A -> TEXT IGUAL . valorA
+    (13) valorA -> . AV1O AV1TEXT AV1C
+    (14) valorA -> . AV2O AV2TEXT AV2C
+
+    AV1O            shift and go to state 28
+    AV2O            shift and go to state 29
+
+    valorA                         shift and go to state 30
+
+state 28
+
+    (13) valorA -> AV1O . AV1TEXT AV1C
+
+    AV1TEXT         shift and go to state 31
+
+
+state 29
+
+    (14) valorA -> AV2O . AV2TEXT AV2C
+
+    AV2TEXT         shift and go to state 32
+
+
+state 30
+
+    (12) A -> TEXT IGUAL valorA .
+
+    MAYOR           reduce using rule 12 (A -> TEXT IGUAL valorA .)
+    BARRAMAYOR      reduce using rule 12 (A -> TEXT IGUAL valorA .)
+    TEXT            reduce using rule 12 (A -> TEXT IGUAL valorA .)
+
+
+state 31
+
+    (13) valorA -> AV1O AV1TEXT . AV1C
+
+    AV1C            shift and go to state 33
+
+
+state 32
+
+    (14) valorA -> AV2O AV2TEXT . AV2C
+
+    AV2C            shift and go to state 34
+
+
+state 33
+
+    (13) valorA -> AV1O AV1TEXT AV1C .
+
+    MAYOR           reduce using rule 13 (valorA -> AV1O AV1TEXT AV1C .)
+    BARRAMAYOR      reduce using rule 13 (valorA -> AV1O AV1TEXT AV1C .)
+    TEXT            reduce using rule 13 (valorA -> AV1O AV1TEXT AV1C .)
+
+
+state 34
+
+    (14) valorA -> AV2O AV2TEXT AV2C .
+
+    MAYOR           reduce using rule 14 (valorA -> AV2O AV2TEXT AV2C .)
+    BARRAMAYOR      reduce using rule 14 (valorA -> AV2O AV2TEXT AV2C .)
+    TEXT            reduce using rule 14 (valorA -> AV2O AV2TEXT AV2C .)
+

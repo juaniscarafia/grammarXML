@@ -1,0 +1,22 @@
+<Data>
+	<Customers CustomerID="45183">
+		<ContactName>Martin Sanchez</ContactName>
+		<Phone>5557555</Phone>
+		<FullAddress>
+			<Address>Mitre 4511</Address>
+			<City>Buenos Aires</City>
+			<PostalCode>C1094</PostalCode>
+			<Country>Argentina</Country>
+		</FullAddress>
+	</Customers>
+	<Customers CustomerID="46977">
+		<ContactName>Marianela Montenegro</ContactName>
+		<Phone>5566874</Phone>
+		<FullAddress>
+			<Address>Callao 6531 2o B</Address>
+			<City>Buenos Aires</City>
+			<PostalCode>C1066</PostalCode>
+			<Country>Argentina</Country>
+		</FullAddress>
+	</Customers>
+</Data>
